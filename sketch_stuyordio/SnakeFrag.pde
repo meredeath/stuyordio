@@ -38,6 +38,7 @@ public class SnakeFrag{
   }
   
   public void display(){
+    noStroke();
     fill(c);
     ellipse(x,y,radius,radius);
   }
