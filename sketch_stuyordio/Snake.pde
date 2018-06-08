@@ -15,7 +15,7 @@ public class Snake{
     frags = new LinkedList<SnakeFrag>();
     length=len;
     radius=r;
-    c = new color(c1,c2,c3);
+    c = color(c1,c2,c3);
     for(int i=0;i<len;i++){
       frags.add(new SnakeFrag(r,c));
     }

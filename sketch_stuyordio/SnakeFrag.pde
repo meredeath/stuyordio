@@ -7,15 +7,15 @@ public class SnakeFrag{
     y=mouseY-10.0;
     xspeed=2.0;
     yspeed=2.0;
-    size=5.0;
+    radius=5.0;
     c=color(255,0,255);
   }
   
   public SnakeFrag(int rad, color _c){
     x=mouseX-10.0;
     y=mouseY-10.0;
-    xspeed=xs;
-    yspeed=ys;
+    xspeed=2.0;
+    yspeed=2.0;
     radius=rad;
     c=_c;
   }
