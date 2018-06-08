@@ -35,14 +35,17 @@ public class Snake{
   }
 
   void update(){
+    /*
     SnakeFrag oldhead = frags.getFirst();
     frags.addFirst(new SnakeFrag(frags.peek().getX()+xspeed,frags.peek().getY()+yspeed,xspeed,yspeed,radius,c));
     frags.removeLast();
     //frags.push(new SnakeFrag(frags.peek().getX()+xspeed,frags.peek().getY()+yspeed,xspeed,yspeed,radius,c));
     x = frags.peek().x;
     y = frags.peek().y;
+    */
     for(SnakeFrag f:frags){
       f.update();
+      f.checkWalls();
     }
     this.display();
   }
