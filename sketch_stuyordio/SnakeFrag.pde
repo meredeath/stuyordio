@@ -1,27 +1,58 @@
+import java.util.*;
 public class SnakeFrag{
   float x,y,xspeed,yspeed,radius;
   color c;
+  SnakeFrag next;
   
   public SnakeFrag(){
-    x=mouseX-10.0;
-    y=mouseY-10.0;
+    x=width/2.0;
+    y=height/2.0;
     xspeed=2.0;
     yspeed=2.0;
-    radius=5.0;
+    radius=20.0;
     c=color(255,0,255);
   }
   
-  public SnakeFrag(int rad, color _c){
-    x=mouseX-10.0;
-    y=mouseY-10.0;
+    public SnakeFrag(float x, float y){
+    this.x=x;
+    this.y=y;
     xspeed=2.0;
     yspeed=2.0;
+    radius=20.0;
+    c=color(255,0,255);
+  }
+  
+  public SnakeFrag(float _x,float _y,float xs,float ys,float rad,color c){
+    x=_x;
+    y=_y;
+    xspeed=xs;
+    yspeed=ys;
     radius=rad;
-    c=_c;
+    this.c=c;
+  }
+  float getX(){
+    return x;
+  }
+  float getY(){
+    return y;
   }
   
   public void display(){
     fill(c);
     ellipse(x,y,radius,radius);
+  }
+  
+  void update(){
+    x+=xspeed;
+    y+=yspeed;
+  }
+  
+  void checkWalls(){
+    if(x>width-radius || x<radius){
+      xspeed = -xspeed;
+    }
+    if(y>height-radius || y<radius){
+      yspeed = -yspeed;
+    }
   }
 }
