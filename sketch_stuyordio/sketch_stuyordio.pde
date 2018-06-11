@@ -4,8 +4,9 @@ public void setup(){
   size(600,300);
   background(0);
   s = new ArrayList<Snake>();
-  for(int i=0;i<10;i++){
-    Snake sn = new Snake((float)Math.random()*(width/2),(float)Math.random()*(height/2),50.0,20.0,255,(int)Math.random()*255,(int)Math.random()*255);
+  for(int i=0;i<1;i++){
+    PlayerSnake sn = new PlayerSnake();
+    //PlayerSnake sn = new PlayerSnake((float)Math.random()*(width/2),(float)Math.random()*(height/2),50.0,20.0,255,(int)Math.random()*255,(int)Math.random()*255);
     s.add(sn);
   }
 }

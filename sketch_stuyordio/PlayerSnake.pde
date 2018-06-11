@@ -1,36 +1,19 @@
-import java.util.*;
-public class Snake{
-  LinkedList<SnakeFrag> frags;
-  float len, radius, speed,x,y,direction;
-  color c;
+public class PlayerSnake extends Snake{
   
-  public Snake(){
+    public PlayerSnake(){
     frags = new LinkedList<SnakeFrag>();
-    for(int i=0;i<10;i++){
-      //frags.add(new SnakeFrag());
-    }
-  }
-  
-  public Snake(float _x,float _y,float len, float r, int c1, int c2, int c3){
-    frags = new LinkedList<SnakeFrag>();
-    this.len=len;
-    radius=r;
-    x=_x;
-    y=_y;
+    len=10.0;
+    radius=10.0;
+    x=random(width/2);
+    y=random(height/2);
     speed=2.5;
     direction = -45.0;
-    c = color(c1,c2,c3);
-    Head head = new Head(x,y,r,c);
+    c = color(random(256),random(256),random(256));
+    Head head = new Head(x,y,radius,c);
     frags.add(head);
     for(int i=0;i<len;i++){
       BodyFrag b = new BodyFrag(head,frags.getLast());
       frags.add(b); 
-    }
-  }
-
-  void display(){
-    for(SnakeFrag f:frags){
-      f.display();
     }
   }
   
