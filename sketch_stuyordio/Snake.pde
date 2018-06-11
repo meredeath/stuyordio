@@ -1,53 +1,51 @@
 import java.util.*;
 public class Snake{
   private LinkedList<SnakeFrag> frags;
-  float len, radius, x,y,xspeed, yspeed;
+  float len, radius, speed,x,y,direction;
   color c;
   
   public Snake(){
     frags = new LinkedList<SnakeFrag>();
     for(int i=0;i<10;i++){
-      frags.add(new SnakeFrag(200,i*10));
+      //frags.add(new SnakeFrag());
     }
   }
   
-  public Snake(float _x,float _y,float xs,float ys,float len, float r, int c1, int c2, int c3){
+  public Snake(float _x,float _y,float len, float r, int c1, int c2, int c3){
     frags = new LinkedList<SnakeFrag>();
     this.len=len;
     radius=r;
     x=_x;
     y=_y;
-    xspeed=xs;
-    yspeed=ys;
+    speed=1.5;
+    direction = -45.0;
     c = color(c1,c2,c3);
-    SnakeFrag head = new SnakeFrag(x,y,xspeed,yspeed,r,c);
+    Head head = new Head(x,y,r,c);
     frags.add(head);
     for(int i=0;i<len;i++){
-      frags.add(new SnakeFrag(frags.get(i).getX()-5,frags.get(i).getY()-5,xspeed,yspeed,r,c));
+      BodyFrag b = new BodyFrag();
+      b.setPrev(frags.get(i));
+      frags.add(b); 
     }
   }
-  
+
   void display(){
-    //println(frags);
     for(SnakeFrag f:frags){
       f.display();
     }
   }
-
+  
+/*  
   void update(){
-    /*
-    SnakeFrag oldhead = frags.getFirst();
-    frags.addFirst(new SnakeFrag(frags.peek().getX()+xspeed,frags.peek().getY()+yspeed,xspeed,yspeed,radius,c));
+    SnakeFrag oldHead = frags.getFirst();
+    if (abs(oldHead.x - mouseX) > 10 && abs(oldHead.y - mouseY) > 10){
+        direction = atan2(mouseY - oldHead.y, mouseX - oldHead.x);
+    }
+    frags.addFirst(new SnakeFrag(oldHead.x + speed * cos(direction), oldHead.y + speed * sin(direction), radius, c));
     frags.removeLast();
-    //frags.push(new SnakeFrag(frags.peek().getX()+xspeed,frags.peek().getY()+yspeed,xspeed,yspeed,radius,c));
     x = frags.peek().x;
     y = frags.peek().y;
-    */
-    for(SnakeFrag f:frags){
-      f.update();
-      f.checkWalls();
-    }
     this.display();
   }
-  
+  */
 }
