@@ -4,7 +4,7 @@ ArrayList<Food> snacks;
 PlayerSnake me;
 
 public void setup(){
-  size(600,300);
+  size(1000,780);
   background(0);
   snakes = new ArrayList<Snake>();
   snacks = new ArrayList<Food>();
@@ -13,7 +13,7 @@ public void setup(){
   for(int i=0;i<15;i++){
     snakes.add(new AISnake());
   }
-  for(int i=0;i<30;i++){
+  for(int i=0;i<150;i++){
     Food f = new Food();
     snacks.add(f);
   }
@@ -51,8 +51,8 @@ void eatFood(Snake ss){
 }
 
 void moarFood(){
-  if(snacks.size()<50){
-    for(int i=0;i<50-snacks.size();i++){
+  if(snacks.size()<150){
+    for(int i=0;i<150-snacks.size();i++){
       Food f = new Food();
       snacks.add(f);
     }

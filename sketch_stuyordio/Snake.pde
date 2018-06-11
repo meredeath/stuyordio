@@ -3,6 +3,7 @@ public class Snake{
   LinkedList<SnakeFrag> frags;
   float len, radius, speed,x,y,direction;
   color c;
+  String name;
   
   public Snake(){
     frags = new LinkedList<SnakeFrag>();
@@ -26,12 +27,16 @@ public class Snake{
       BodyFrag b = new BodyFrag(this,frags.getLast());
       frags.add(b); 
     }
+    name="Snake";
   }
 
   void display(){
     for(SnakeFrag f:frags){
       f.display();
     }
+    textAlign(TOP,CENTER);
+    textSize(12);
+    text(name,frags.getFirst().x+10,frags.getLast().y+10);
   }
   
   void update(){

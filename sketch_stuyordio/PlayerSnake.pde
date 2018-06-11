@@ -15,6 +15,7 @@ public class PlayerSnake extends Snake{
       BodyFrag b = new BodyFrag(this,frags.getLast());
       frags.add(b); 
     }
+    name="me";
   }
   
   void update(){

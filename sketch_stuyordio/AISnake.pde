@@ -14,6 +14,7 @@ public class AISnake extends Snake{
       BodyFrag b = new BodyFrag(this,frags.getLast());
       frags.add(b); 
     }
+    name="Crappy AI Snake # "+int(random(500));
   }
   
   void update(){
@@ -23,7 +24,7 @@ public class AISnake extends Snake{
       speed*=-1;
     }
     SnakeFrag oldFirst = frags.getFirst();
-    direction = atan2(random(height), random(width));
+    direction = random(-TWO_PI,TWO_PI);
     frags.addFirst(new SnakeFrag(oldFirst.x + speed * cos(direction), oldFirst.y + speed * sin(direction),radius,c));
     frags.removeLast();
     x = frags.peek().x;
