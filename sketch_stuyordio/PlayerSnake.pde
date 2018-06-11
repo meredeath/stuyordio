@@ -26,5 +26,6 @@ public class PlayerSnake extends Snake{
     frags.removeLast();
     x = frags.peek().x;
     y = frags.peek().y;
+    boost();
   }
 }

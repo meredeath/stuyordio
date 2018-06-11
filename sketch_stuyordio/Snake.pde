@@ -43,13 +43,23 @@ public class Snake{
     frags.removeLast();
     x = frags.peek().x;
     y = frags.peek().y;
+    boost();
+  }
+  
+  void boost(){
+    if(mousePressed){
+      while(len>10){
+        speed=speed*2;
+        frags.removeLast();
+      }
+    }   
   }
   
   void eat(Food f){
     if(f.eaten==true){
       return;
     }
-    if(dist(frags.getFirst().x,frags.getFirst().y,f.x,f.y)<5){
+    if(dist(frags.getFirst().x,frags.getFirst().y,f.x,f.y)<f.size*2){
       f.eaten=true;
       frags.add(new BodyFrag(this,frags.getLast()));
     }

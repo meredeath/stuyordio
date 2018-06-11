@@ -1,6 +1,7 @@
 import java.util.*;
 ArrayList<Snake> snakes;
 ArrayList<Food> snacks;
+PlayerSnake me;
 
 public void setup(){
   size(600,300);
@@ -8,9 +9,9 @@ public void setup(){
   snakes = new ArrayList<Snake>();
   snacks = new ArrayList<Food>();
   for(int i=0;i<1;i++){
-    PlayerSnake sn = new PlayerSnake();
+    me = new PlayerSnake();
     //PlayerSnake sn = new PlayerSnake((float)Math.random()*(width/2),(float)Math.random()*(height/2),50.0,20.0,255,(int)Math.random()*255,(int)Math.random()*255);
-    snakes.add(sn);
+    snakes.add(me);
   }
   for(int i=0;i<30;i++){
     Food f = new Food();
@@ -29,17 +30,31 @@ void draw(){
     f.display();
     f.update();
   }
+  moarFood();
+}
+
+void mousePressed(){
+  me.boost();
 }
 
 void eatFood(Snake ss){
-  for(Food f:snacks){
-    ss.eat(f);
-    if(f.eaten==true){
-      f.display();
+  Iterator looper = snacks.iterator();
+  while(looper.hasNext()){
+    Food f = (Food)looper.next();
+    if(f.eaten){
+      looper.remove();
+    }
+    for(Snake a:snakes){
+      a.eat(f);
     }
   }
 }
 
-void spawn(){
-
+void moarFood(){
+  if(snacks.size()<50){
+    for(int i=0;i<50-snacks.size();i++){
+      Food f = new Food();
+      snacks.add(f);
+    }
+  }
 }
