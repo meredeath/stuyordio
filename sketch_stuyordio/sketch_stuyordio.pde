@@ -14,6 +14,7 @@ void draw(){
   background(0);
   for(Snake a:s){
     a.display();
+    a.update();
   }
 }
 

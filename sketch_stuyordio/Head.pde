@@ -4,6 +4,10 @@ public class Head extends SnakeFrag{
   float speed = 1.5;
 
   public Head(float x, float y,float rad,color col){
+    direction=3.0;
+    if (abs(x - mouseX) > 10 && abs(y - mouseY) > 10){
+        direction = atan2(mouseY - y, mouseX - x);
+    }
     this.x=x;
     this.y=y;
     radius=rad;
@@ -16,5 +20,9 @@ public class Head extends SnakeFrag{
     }
     x=x + speed * cos(direction);
     y=y + speed * sin(direction);
+  }
+  
+  SnakeFrag getPrev(){
+    return null;
   }
 }

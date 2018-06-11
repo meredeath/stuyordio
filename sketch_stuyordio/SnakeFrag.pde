@@ -24,4 +24,5 @@ abstract class SnakeFrag{
   }
   
   abstract void update();
+  abstract SnakeFrag getPrev();
 }

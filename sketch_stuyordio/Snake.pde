@@ -23,8 +23,7 @@ public class Snake{
     Head head = new Head(x,y,r,c);
     frags.add(head);
     for(int i=0;i<len;i++){
-      BodyFrag b = new BodyFrag();
-      b.setPrev(frags.get(i));
+      BodyFrag b = new BodyFrag(head,frags.getLast());
       frags.add(b); 
     }
   }
@@ -35,17 +34,10 @@ public class Snake{
     }
   }
   
-/*  
   void update(){
-    SnakeFrag oldHead = frags.getFirst();
-    if (abs(oldHead.x - mouseX) > 10 && abs(oldHead.y - mouseY) > 10){
-        direction = atan2(mouseY - oldHead.y, mouseX - oldHead.x);
+    for(SnakeFrag f:frags){
+      f.update();
     }
-    frags.addFirst(new SnakeFrag(oldHead.x + speed * cos(direction), oldHead.y + speed * sin(direction), radius, c));
-    frags.removeLast();
-    x = frags.peek().x;
-    y = frags.peek().y;
     this.display();
   }
-  */
 }
