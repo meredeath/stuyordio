@@ -23,7 +23,7 @@ public class Snake{
     Head head = new Head(x,y,r,c);
     frags.add(head);
     for(int i=0;i<len;i++){
-      BodyFrag b = new BodyFrag(head,frags.getLast());
+      BodyFrag b = new BodyFrag(this,frags.getLast());
       frags.add(b); 
     }
   }
@@ -43,5 +43,15 @@ public class Snake{
     frags.removeLast();
     x = frags.peek().x;
     y = frags.peek().y;
+  }
+  
+  void eat(Food f){
+    if(f.eaten==true){
+      return;
+    }
+    if(dist(frags.getFirst().x,frags.getFirst().y,f.x,f.y)<5){
+      f.eaten=true;
+      frags.add(new BodyFrag(this,frags.getLast()));
+    }
   }
 }

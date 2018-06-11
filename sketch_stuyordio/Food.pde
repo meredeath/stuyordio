@@ -20,7 +20,20 @@ public class Food{
   }
   
   void display(){
+    if(eaten){
+      noFill();
+      noStroke();
+    }
     fill(c);
     ellipse(x,y,size,size);
+  }
+  
+  void update(){
+    if(eaten){
+      noFill();
+      noStroke();
+    }else{
+      display();
+    }
   }
 }

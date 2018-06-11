@@ -12,7 +12,7 @@ public class PlayerSnake extends Snake{
     Head head = new Head(x,y,radius,c);
     frags.add(head);
     for(int i=0;i<len;i++){
-      BodyFrag b = new BodyFrag(head,frags.getLast());
+      BodyFrag b = new BodyFrag(this,frags.getLast());
       frags.add(b); 
     }
   }

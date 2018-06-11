@@ -3,11 +3,10 @@ public class BodyFrag extends SnakeFrag{
   SnakeFrag prev;
   Head h;
   
-   public BodyFrag(Head h, SnakeFrag p){
+   public BodyFrag(Snake parent, SnakeFrag p){
     prev=p;
-    this.h=h;
-    direction=h.direction;
-    speed=h.speed;
+    direction=parent.direction;
+    speed=parent.speed;
     //println(x);
     //println(prev);
     //println(prev.x);
@@ -15,8 +14,8 @@ public class BodyFrag extends SnakeFrag{
     //println(direction);
     x=prev.x + speed * (cos(direction));
     y=prev.y + speed * (sin(direction));
-    radius=h.radius;
-    c=h.c;
+    radius=parent.radius;
+    c=parent.c;
   }
   
   void update(){

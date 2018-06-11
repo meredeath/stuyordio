@@ -23,9 +23,20 @@ void draw(){
   for(Snake a:snakes){
     a.display();
     a.update();
+    eatFood(a);
   }
   for(Food f:snacks){
     f.display();
+    f.update();
+  }
+}
+
+void eatFood(Snake ss){
+  for(Food f:snacks){
+    ss.eat(f);
+    if(f.eaten==true){
+      f.display();
+    }
   }
 }
 
