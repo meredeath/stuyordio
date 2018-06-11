@@ -13,16 +13,16 @@ public class BodyFrag extends SnakeFrag{
     //println(prev.x);
     //println(speed);
     //println(direction);
-    x=prev.x + speed * (cos(direction)-2);
-    y=prev.y + speed * (sin(direction)-2);
+    x=prev.x + speed * (cos(direction));
+    y=prev.y + speed * (sin(direction));
     radius=h.radius;
     c=h.c;
   }
   
   void update(){
     direction=h.direction;
-    x=prev.x + speed * (cos(direction)-2);
-    y=prev.y + speed * (sin(direction)-2);
+    x=prev.x + speed * (cos(direction));
+    y=prev.y + speed * (sin(direction));
   }
   
   void setPrev(SnakeFrag s){

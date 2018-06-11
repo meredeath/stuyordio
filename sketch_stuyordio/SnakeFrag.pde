@@ -1,5 +1,5 @@
 import java.util.*;
-abstract class SnakeFrag{
+public class SnakeFrag{
   float x,y,radius,direction,speed;
   color c;
   
@@ -23,6 +23,4 @@ abstract class SnakeFrag{
     ellipse(x,y,radius,radius);
   }
   
-  abstract void update();
-  abstract SnakeFrag getPrev();
 }

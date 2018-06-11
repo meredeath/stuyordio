@@ -5,7 +5,7 @@ public void setup(){
   background(0);
   s = new ArrayList<Snake>();
   for(int i=0;i<10;i++){
-    Snake sn = new Snake((float)Math.random()*(width/2),(float)Math.random()*(height/2),10.0,20.0,255,(int)Math.random()*255,(int)Math.random()*255);
+    Snake sn = new Snake((float)Math.random()*(width/2),(float)Math.random()*(height/2),50.0,20.0,255,(int)Math.random()*255,(int)Math.random()*255);
     s.add(sn);
   }
 }

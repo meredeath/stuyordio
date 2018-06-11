@@ -17,7 +17,7 @@ public class Snake{
     radius=r;
     x=_x;
     y=_y;
-    speed=1.5;
+    speed=2.5;
     direction = -45.0;
     c = color(c1,c2,c3);
     Head head = new Head(x,y,r,c);
@@ -35,9 +35,13 @@ public class Snake{
   }
   
   void update(){
-    for(SnakeFrag f:frags){
-      f.update();
+    SnakeFrag oldFirst = frags.getFirst();
+    if (abs(oldFirst.x - mouseX) > 5 && abs(oldFirst.y - mouseY) > 5){
+      direction = atan2(mouseY - oldFirst.y, mouseX - oldFirst.x);
     }
-    this.display();
+    frags.addFirst(new SnakeFrag(oldFirst.x + speed * cos(direction), oldFirst.y + speed * sin(direction),radius,c));
+    frags.removeLast();
+    x = frags.peek().x;
+    y = frags.peek().y;
   }
 }
