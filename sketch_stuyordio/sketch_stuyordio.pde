@@ -8,10 +8,10 @@ public void setup(){
   background(0);
   snakes = new ArrayList<Snake>();
   snacks = new ArrayList<Food>();
-  for(int i=0;i<1;i++){
-    me = new PlayerSnake();
-    //PlayerSnake sn = new PlayerSnake((float)Math.random()*(width/2),(float)Math.random()*(height/2),50.0,20.0,255,(int)Math.random()*255,(int)Math.random()*255);
-    snakes.add(me);
+  me = new PlayerSnake();
+  snakes.add(me);
+  for(int i=0;i<15;i++){
+    snakes.add(new AISnake());
   }
   for(int i=0;i<30;i++){
     Food f = new Food();
