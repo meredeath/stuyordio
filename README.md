@@ -1,5 +1,5 @@
 # stuyordio
-My crappy slither.io remake for my second term APCS final project.
+My slither.io remake for my second term APCS final project.
 
 ## The Team
 Meredith Hu
@@ -84,4 +84,4 @@ reaches:
 
 ### 06/10/2018
 * Finished minimum functionality. The snakes move and display in constant time, but they get severely distorted.# stuyordio
-My crappy slither.io remake for my second term APCS final project.
+My slither.io remake for my second term APCS final project.
